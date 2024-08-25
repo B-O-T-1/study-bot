@@ -1,6 +1,6 @@
 <div align=center>
 
-# BOT
+# STUDY BOT
 
 ### AWS lambda를 이용한 discord bot
 
