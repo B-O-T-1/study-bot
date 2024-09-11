@@ -26,6 +26,6 @@ discord BOT
 
 사용방법
 
-1. lambda 함수에 해당 파일 추가
+1. lambda 함수에 해당 파일 추가.
 
-2. Amazon EventBridge > 규칙에서 원하는 규칙 생성 후 lambda 함수와 연결
+2. Amazon EventBridge > 규칙에서 원하는 규칙 생성 후 lambda 함수와 연결.
