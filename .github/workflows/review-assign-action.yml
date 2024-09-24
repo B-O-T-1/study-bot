@@ -2,7 +2,7 @@ name: Review Assign Action
 
 on:
   pull_request:
-    types: [opened, ready_for_review]
+    types: [opened, edited, ready_for_review]
 
 jobs:
   assign:
@@ -13,4 +13,19 @@ jobs:
           assignees: ${{ github.actor }} # assign pull request author
           reviewers: ${{ vars.REVIEWERS }} # if draft, assigned when draft is released
           max-num-of-reviewers: 2 # 이 수치가 명시되면 지정된 숫자보다 적은 수의 리뷰어가 랜덤으로 선택되어 무작위로 할당하는데 유용하다.
+  notify-api:
+    needs: assign
+    runs-on: ubuntu-latest
 
+    steps:
+    - name: Call API when reviewer is assigned or changed
+      run: |
+        curl -X POST https://l6ejodsiu3.execute-api.ap-northeast-2.amazonaws.com/test/pull-request \
+        -H "Content-Type: application/json" \
+        -d '{
+          "repository": "${{ github.repository }}",
+          "pull_request": "${{ github.event.pull_request.number }}",
+          "pull_request": "${{ github.event.pull_request._link.self }}",
+          "reviewer": "${{ github.event.requested_reviewer }}",
+          "action": "${{ github.event.action }}"
+        }'
