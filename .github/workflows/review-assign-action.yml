@@ -22,10 +22,9 @@ jobs:
       run: |
         curl -X POST https://l6ejodsiu3.execute-api.ap-northeast-2.amazonaws.com/test/pull-request \
         -H "Content-Type: application/json" \
-        -d '{
+        -d '${{toJSson({
           "repository": "${{ github.repository }}",
-          "pull_request": "${{ github.event.pull_request.number }}",
-          "pull_request": "${{ github.event.pull_request._link.self }}",
+          "pull_request": "${{ github.event.pull_request }}",
           "reviewer": "${{ github.event.requested_reviewer }}",
           "action": "${{ github.event.action }}"
-        }'
+        })}}$'
