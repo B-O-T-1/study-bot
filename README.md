@@ -16,7 +16,7 @@ discord BOT
 
 <image src="https://github.com/user-attachments/assets/916a459d-49aa-47ad-afbc-350adefa00d9" width="400"/>
 
-<br/>d
+<br/>
 
 <br/>
 
