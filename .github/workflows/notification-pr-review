@@ -11,5 +11,5 @@ jobs:
       uses: oris-8/notification-pr-review@v0.1.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        webhook_url: ${{ secrets.WEBHOOK_URL }}
-        user_table: ${{secrets.USER_TABLE}}
+        webhook_url: ${{ vars.WEBHOOK_URL }}
+        user_table: ${{vars.USER_TABLE}}
